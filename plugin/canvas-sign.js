@@ -1,5 +1,16 @@
-const typeCheck = (data)=> {
-    return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
+/**
+ * 在线签字插件
+ * @author weilang
+ * @since 2021-7
+ */
+const isType = (val) =>{
+    return Object.prototype.toString.call(val).slice(8, -1).toLowerCase();
+}
+const isObject = (val)=> {
+    return isType(val) === 'object';
+}
+const isArray = (val) => {
+    return isType(val) === 'array';
 }
 const isMobile = () => {
     return /(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i.test(window.navigator.userAgent);
@@ -10,7 +21,7 @@ const getElement = (el)=> {
     try {
         canvas = document.querySelector(el);
     } catch (error) {
-        throw new Error("找到canvas引用")
+        throw new Error("Canvas reference not found!")
     }
     return canvas;
 }
@@ -92,18 +103,20 @@ class canvasSign {
             this.emit('mouseleave', e);
         }
         const handleUp = (e) => {
-            drawend(e)
+            drawend(e);
             this.isMouseDown = false;
             this.emit("mouseup", e);
         }
         const handleDown = (e) => {
             this.emit('mousedown', e);
             e = isMobile() ? e.touches[0] : e;
-            this.setJson(defaultConfig.dataJson(), 'start')
+            this.setJson(defaultConfig.dataJson(), 'start');
             //按下键时候重置画笔
             this.ctx.beginPath();
             this.isMouseDown = true;
-            this.creat({ x: e.clientX - left + 0.5, y: e.clientY - top + 0.5 });
+            const position = { x: e.clientX - left + 0.5, y: e.clientY - top + 0.5 };
+            this.ctx.moveTo(position.x,position.y)
+            this.creat({ x: position.x, y: position.y });
         }
         return { handleMove, handleDown, handleLeave, handleUp };
     }
@@ -118,10 +131,10 @@ class canvasSign {
         const raf = window.requestAnimationFrame;
         const move = raf?(e)=>{
             raf(() => {
-                handleEvent.handleMove(e)
+                handleEvent.handleMove(e);
               });
         }:handleEvent.handleMove;
-        let defaultFn = {
+        const defaultFn = {
             mousedown: handleEvent.handleDown,
             mouseleave: handleEvent.handleLeave,
             mouseup: handleEvent.handleUp,
@@ -146,7 +159,7 @@ class canvasSign {
     */
     setLineStyle(style = {},isSaveLineStyle = true) {
         const ctx = this.ctx;
-        const lineStyle =  typeCheck(style) === 'object' ? { ...this.lineStyle, ...style } : this.lineStyle;
+        const lineStyle =  isObject(style)? { ...this.lineStyle, ...style } : this.lineStyle;
         if(isSaveLineStyle){
             this.lineStyle = lineStyle;
         }
@@ -161,7 +174,7 @@ class canvasSign {
      * type moving：绘制中 end.已结束绘制 start.开始绘制
     */
     setJson(value, type) {
-        let dataJson = this.dataJson;
+        const dataJson = this.dataJson;
         const jsonLength = dataJson.length - 1;
         switch (type) {
             case 'moving':
@@ -184,7 +197,8 @@ class canvasSign {
     }
     loadJson(arr = []) {
         this.dataJson = arr;
-        if (typeCheck(arr) != 'array') throw new Error("arr is not Array");
+        console.log(isArray(arr));
+        if (!isArray(arr)) throw new Error("loadjson requires an array!");
         for (let i = 0; i < arr.length; i++) {
             const item = arr[i];
             this.setLineStyle(item.lineStyle,false);
