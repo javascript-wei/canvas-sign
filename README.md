@@ -6,9 +6,7 @@
 https://github.com/javascript-wei/canvas-sign.git
 ```
 ## demo
-```js
 [体验预览](https://javascript-wei.github.io/canvas-sign/)
-```
 ## Use
 
 支持pc和移动端，核心代码plugin/canvas-sign.js  
