@@ -134,7 +134,7 @@ class canvasSign {
                 handleEvent.handleMove(e);
               });
         }:handleEvent.handleMove;
-        const defaultFn = {
+        const allFn = {
             mousedown: handleEvent.handleDown,
             mouseleave: handleEvent.handleLeave,
             mouseup: handleEvent.handleUp,
@@ -144,7 +144,7 @@ class canvasSign {
             touchstart: handleEvent.handleDown,
             touchend: handleEvent.handleLeave
         }
-        this.canvas.addEventListener(type, fn || defaultFn[type], false)
+        this.canvas.addEventListener(type, fn || allFn[type], false)
     }
     clear() {
         let width = this.canvas.width;

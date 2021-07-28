@@ -7,7 +7,7 @@ https://github.com/javascript-wei/canvas-sign.git
 ```
 ## demo
 ```js
-https://github.com/javascript-wei/canvas-sign.git
+[https://javascript-wei.github.io/canvas-sign/](https://javascript-wei.github.io/canvas-sign/)
 ```
 ## Use
 
@@ -45,5 +45,5 @@ canvas.loadJson(dataJson);
 ```
 最后，祝使用愉快！
 ## Realization idea
-实现思路以及细节参考：[canvas在线签名插件]()  
+实现思路以及细节参考：[canvas在线签名插件](https://juejin.cn/post/6989985162599596063/)  
 如果有什么问题或好的想法欢迎在参与讨论。
