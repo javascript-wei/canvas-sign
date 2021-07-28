@@ -11,7 +11,7 @@ https://github.com/javascript-wei/canvas-sign.git
 ```
 ## Use
 
-支持pc和移动端，核心代码plugin/canvas-sign.js
+支持pc和移动端，核心代码plugin/canvas-sign.js  
 第一步初始化并且设置容器大小：
 ```js
 const cv = document.getElementById("canvas");
@@ -45,5 +45,5 @@ canvas.loadJson(dataJson);
 ```
 最后，祝使用愉快！
 ## Realization idea
-实现思路以及细节参考：[canvas在线签字插件]()  
+实现思路以及细节参考：[canvas在线签名插件]()  
 如果有什么问题或好的想法欢迎在参与讨论。

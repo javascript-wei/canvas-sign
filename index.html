@@ -48,6 +48,9 @@
        height: 23px;
        font-size: 16px; 
     }
+    #canvas{
+        cursor: crosshair;
+    }
 </style>
 
 <body>
@@ -67,7 +70,7 @@
         <canvas id="canvas"></canvas>
     </div>
 </body>
-<script src="./canvasSign/canvas-sign.js"></script>
+<script src="./plugin/canvas-sign.js"></script>
 <script>
     let cv = document.getElementById("canvas");
     let rect = document.getElementById("app").getBoundingClientRect();
