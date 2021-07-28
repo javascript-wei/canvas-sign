@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>在线canvas签名</title>
+
+</head>
+<style>
+    #app {
+        width: 500px;
+        height: 500px;
+    }
+
+    body,
+    html {
+        height: 95%;
+        width: 100%;
+        font-family: Avenir,Helvetica,Arial,sans-serif;
+    }
+
+    #app {
+        width: 95%;
+        height: 80%;
+        margin-left: 2.5%;
+        border: 2px dashed #d3d3d3;
+        
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container button {
+        width: 56px;
+        border: 1px solid slategrey;
+        background: white;
+        height: 40px;
+        border:none ;
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .selectColor{
+       width: 100px;
+       cursor: pointer;
+       height: 23px;
+       font-size: 16px; 
+    }
+    #canvas{
+        cursor: crosshair;
+    }
+</style>
+
+<body>
+    <div class="container" style="display: flex;">
+        <h3>在线签字</h3>
+        <button onclick="reset()">清空</button>
+        <button onclick="restore()">撤销</button>
+        <button onclick="download()">保存</button>
+        <select class="selectColor" onchange="colorChange(event)">
+            <option value="black">黑色</option>
+            <option value="red">红色</option>
+            <option value="blue">蓝色</option>
+            <option value="green">绿色</option>
+        </select>
+    </div>
+    <div id='app'>
+        <canvas id="canvas"></canvas>
+    </div>
+</body>
+
+
+</html>
