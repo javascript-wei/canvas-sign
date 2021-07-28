@@ -7,7 +7,7 @@ https://github.com/javascript-wei/canvas-sign.git
 ```
 ## demo
 ```js
-[https://javascript-wei.github.io/canvas-sign/](https://javascript-wei.github.io/canvas-sign/)
+[体验预览](https://javascript-wei.github.io/canvas-sign/)
 ```
 ## Use
 
