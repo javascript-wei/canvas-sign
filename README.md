@@ -1,19 +1,17 @@
 # canvas-sign
 打造canvas签名组件
-## Clone
 
-```js
-https://github.com/javascript-wei/canvas-sign.git
-```
-## demo
-[体验预览](https://javascript-wei.github.io/canvas-sign/)
 ## Use
-
+```js
+    npm run canvas-sign-online --save
+```
 支持pc和移动端，核心代码plugin/canvas-sign.js  
 第一步初始化并且设置容器大小：
 ```js
+import CanvasSign from "canvas-sign-online";
+
 const cv = document.getElementById("canvas");
-const canvas = new canvasSign(cv);
+const canvas = new CanvasSign(cv);
 /** 注意：canvas的宽高需要在属性上设置，而不是style */
 cv.width = '500';
 cv.height = '500';
