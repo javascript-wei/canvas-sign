@@ -14,6 +14,9 @@ https://github.com/javascript-wei/canvas-sign.git
 ```js
 const cv = document.getElementById("canvas");
 const canvas = new canvasSign(cv);
+/** 注意：canvas的宽高需要在属性上设置，而不是style */
+cv.width = '500';
+cv.height = '500';
 ```
 第二步画笔设置样式：
 ```js
