@@ -3,7 +3,7 @@
 
 ## Use
 ```js
-    npm run canvas-sign-online --save
+npm install canvas-sign-online --save
 ```
 支持pc和移动端，核心代码plugin/canvas-sign.js  
 第一步初始化并且设置容器大小：
