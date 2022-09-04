@@ -42,6 +42,19 @@ document.body.removeChild(img);
 ```js
 canvas.loadJson(dataJson);
 ```
+api列表：  
+
+api | Description | Note
+--- | --- | ---
+`getPNGImage` | png格式导出 |
+`getJPGImage` | jpg格式导出 |
+`clear` | 清除画板 |
+`setLineStyle` | 设置画笔样式 | 同原生canvas 样式和颜色
+`toJson` | 导出json |
+`loadJson` | 加载已经导出的json | toJson().dataJson 
+
+
+
 最后，祝使用愉快！
 ## Realization idea
 实现思路以及细节参考：[canvas在线签名插件](https://juejin.cn/post/6989985162599596063/)  
