@@ -94,7 +94,7 @@ class canvasSign {
             if ((!this.isMouseDown || e.which != 1) && !mobile) return;
             e = mobile ? e.touches[0] : e;
             this.emit('mousemoving', e);
-            this.creat({ x: e.clientX - left + 0.5, y: e.clientY - top + 0.5 });
+            this.creat({ x: e.offsetX  + 0.5, y: e.offsetY + 0.5 });
         }
         const handleLeave = (e) => {
             //鼠标按下时候移出canvas中并且松开
@@ -114,7 +114,7 @@ class canvasSign {
             //按下键时候重置画笔
             this.ctx.beginPath();
             this.isMouseDown = true;
-            const position = { x: e.clientX - left + 0.5, y: e.clientY - top + 0.5 };
+            const position = { x: e.offsetX  + 0.5, y: e.offsetY + 0.5 };
             this.ctx.moveTo(position.x,position.y)
             this.creat({ x: position.x, y: position.y });
         }
